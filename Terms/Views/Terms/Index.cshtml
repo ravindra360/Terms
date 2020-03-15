@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Terms.Models.Term>
+
+@{
+    ViewBag.Title = "Terms";
+}
+
+<h2>Terms</h2>
+
+<p>
+    @Html.ActionLink("New Term", "Create")
+</p>
+<div class="table-responsive">
+    <table class="table table-bordered  table-hover table-condensed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Headword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Definition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Full_form)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abbreviations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Synonyms)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Headword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Definition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Full_form)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Abbreviations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Synonyms)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MOT_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MOT_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MOT_ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
